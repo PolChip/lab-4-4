@@ -1,7 +1,5 @@
 """Интеграционные тесты для JSON Reader."""
 import pytest
-import json
-from pathlib import Path
 from app.io.json_reader import JSONReader
 from app.io.reader_registry import ReaderRegistry
 from app.core.exceptions import DataFormatError, EmptyFileError
@@ -46,7 +44,7 @@ class TestJSONReader:
         reader = JSONReader()
 
         # Пустой файл не является валидным JSON, ожидаем DataFormatError
-        with pytest.raises(DataFormatError) as exc_info:
+        with pytest.raises(DataFormatError):
             reader.read(file_path)
         assert "массив" in str(exc_info.value) or "array" in str(exc_info.value).lower()
 
@@ -57,7 +55,7 @@ class TestJSONReader:
 
         reader = JSONReader()
 
-        with pytest.raises(DataFormatError) as exc_info:
+        with pytest.raises(DataFormatError):
             reader.read(corrupt_path)
 
     def test_read_json_not_array(self, temp_json_file):
@@ -67,7 +65,7 @@ class TestJSONReader:
         file_path = temp_json_file(data, "not_array.json")
         reader = JSONReader()
 
-        with pytest.raises(DataFormatError) as exc_info:
+        with pytest.raises(DataFormatError):
             reader.read(file_path)
 
     def test_mixed_json_validation(self, validator, temp_json_file):

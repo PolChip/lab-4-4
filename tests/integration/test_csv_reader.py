@@ -1,6 +1,5 @@
 """Интеграционные тесты для CSV Reader."""
 import pytest
-import csv
 from pathlib import Path
 from app.io.csv_reader import CSVReader
 from app.io.reader_registry import ReaderRegistry, FileReader

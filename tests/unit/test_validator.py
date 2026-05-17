@@ -15,7 +15,7 @@ class TestValidator:
         (-100.50, False),    # большая отрицательная -> невалидно
         ("abc", False),      # строка -> невалидно
         ("", False),         # пустая строка -> невалидно
-        (999999999.99, True), # очень большое число -> валидно
+        (999999999.99, True),  # очень большое число -> валидно
     ])
     def test_amount_validation(self, validator, amount, expected_valid):
         """Проверка валидации суммы."""
@@ -79,7 +79,7 @@ class TestValidator:
         del record[missing_field]
 
         result = validator.validate_record(record, "test.csv")
-        assert result == False
+        assert result is False
 
         # Проверяем, что ошибка залогирована
         assert len(validator.errors) == 1
@@ -96,7 +96,7 @@ class TestValidator:
 
         result = validator.validate_record(record, "test.csv")
 
-        assert result == True
+        assert result is True
         assert len(validator.valid_transactions) == 1
 
         transaction = validator.valid_transactions[0]

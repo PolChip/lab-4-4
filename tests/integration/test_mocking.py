@@ -1,7 +1,6 @@
 """Тесты с использованием mocking для имитации системных ошибок."""
 import pytest
-import stat
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from pathlib import Path
 from app.services.aggregator import Aggregator
 from app.core.models import Transaction
@@ -111,7 +110,7 @@ class TestMocking:
 
         result = save_results_transactionally(aggregator, Path("result.json"))
 
-        assert result == False
+        assert result is False
 
     @patch('app.services.aggregator.logger')
     def test_duplicate_id_warning_content(self, mock_logger, aggregator):
