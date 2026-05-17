@@ -1,6 +1,5 @@
 """Интеграционные тесты для агрегатора."""
 import pytest
-from app.services.aggregator import Aggregator
 from app.core.models import Transaction
 from app.core.exceptions import DuplicateIdError
 

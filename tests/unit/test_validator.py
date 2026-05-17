@@ -1,7 +1,5 @@
 """Unit-тесты для валидатора."""
 import pytest
-from app.services.validator import Validator
-from app.core.models import Transaction
 
 
 class TestValidator:

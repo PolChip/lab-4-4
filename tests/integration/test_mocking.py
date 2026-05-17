@@ -2,7 +2,6 @@
 import pytest
 from unittest.mock import patch
 from pathlib import Path
-from app.services.aggregator import Aggregator
 from app.core.models import Transaction
 
 

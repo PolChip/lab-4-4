@@ -2,7 +2,7 @@
 import pytest
 from pathlib import Path
 from app.io.csv_reader import CSVReader
-from app.io.reader_registry import ReaderRegistry, FileReader
+from app.io.reader_registry import ReaderRegistry
 from app.core.exceptions import DataFormatError, EmptyFileError
 
 
