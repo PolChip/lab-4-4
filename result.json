@@ -1,0 +1,68 @@
+{
+  "summary_by_category": {
+    "Category1": 100.0,
+    "Category2": 200.0,
+    "Category3": 300.0,
+    "Category4": 400.0,
+    "Food": 100.5,
+    "Transport": 200.0,
+    "Salary": 300.0,
+    "Rent": 500.0,
+    "Office": 30.0
+  },
+  "total_transactions": 7,
+  "total_amount": 2130.5,
+  "categories": [
+    "Category1",
+    "Category2",
+    "Category3",
+    "Category4",
+    "Food",
+    "Transport",
+    "Salary",
+    "Rent",
+    "Office"
+  ],
+  "duplicate_ids": [
+    "dup1",
+    "dup1"
+  ],
+  "by_category_detailed": {
+    "Category1": {
+      "total": 100.0
+    },
+    "Category2": {
+      "total": 200.0
+    },
+    "Category3": {
+      "total": 300.0
+    },
+    "Category4": {
+      "total": 400.0
+    },
+    "Food": {
+      "total": 100.5
+    },
+    "Transport": {
+      "total": 200.0
+    },
+    "Salary": {
+      "total": 300.0
+    },
+    "Rent": {
+      "total": 500.0
+    },
+    "Office": {
+      "total": 30.0
+    }
+  },
+  "id_sources": {
+    "dup1": "duplicate_ids.csv",
+    "dup2": "duplicate_ids.csv",
+    "1": "good.csv",
+    "2": "good.csv",
+    "3": "good.json",
+    "4": "mixed.csv",
+    "7": "mixed.csv"
+  }
+}

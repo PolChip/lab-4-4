@@ -1,0 +1,5 @@
+id,amount,category,date
+dup1,100,Category1,2024-01-01
+dup2,200,Category2,2024-01-02
+dup1,300,Category3,2024-01-03
+dup1,400,Category4,2024-01-04
