@@ -1,0 +1,49 @@
+name: Lab 4 CI/CD  
+
+# 1. Когда запускать?
+on:
+  push:
+    branches: [ main, master ]   # при пуше в main/master
+  pull_request:
+    branches: [ main, master ]   # и при создании PR в main/master
+
+# 2. Что делать?
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest          # Запускаем на свежей Ubuntu
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"] # Проверяем на нескольких версиях Python
+
+    steps:
+    # Шаг 1: Забрать код из репозитория
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Шаг 2: Установить нужную версию Python
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    # Шаг 3: Установить зависимости 
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 mypy pytest pytest-cov
+        # Если у вас есть requirements.txt, добавьте: pip install -r requirements.txt
+
+    # Шаг 4: Проверка стиля и качества (flake8)
+    - name: Lint with flake8
+      run: |
+        flake8 app/ tests/ 
+
+    # Шаг 5: Проверка типов (mypy)
+    - name: Type check with mypy
+      run: |
+        mypy app/ --ignore-missing-imports
+
+    # Шаг 6: Запуск тестов (pytest) 
+    - name: Test with pytest
+      run: |
+        pytest tests/ --cov=app --cov-report=xml --cov-fail-under=80
