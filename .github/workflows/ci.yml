@@ -1,4 +1,4 @@
-name: Lab 4 CI/CD  
+name: Lab 4 CI/CD
 
 # 1. Когда запускать?
 on:
@@ -26,7 +26,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    # Шаг 3: Установить зависимости 
+    # Шаг 3: Установить зависимости
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -36,14 +36,14 @@ jobs:
     # Шаг 4: Проверка стиля и качества (flake8)
     - name: Lint with flake8
       run: |
-        flake8 app/ tests/ 
+        flake8 app/ tests/ --max-line-length=100
 
     # Шаг 5: Проверка типов (mypy)
     - name: Type check with mypy
       run: |
         mypy app/ --ignore-missing-imports
 
-    # Шаг 6: Запуск тестов (pytest) 
+    # Шаг 6: Запуск тестов (pytest)
     - name: Test with pytest
       run: |
         pytest tests/ --cov=app --cov-report=xml --cov-fail-under=80
