@@ -35,5 +35,7 @@ jobs:
         mypy app/ --ignore-missing-imports --explicit-package-bases
 
     - name: Test with pytest
+      env:
+        PYTHONPATH: .
       run: |
         pytest tests/ --cov=app --cov-fail-under=80
