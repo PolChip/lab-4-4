@@ -32,7 +32,7 @@ jobs:
 
     - name: Type check with mypy
       run: |
-        mypy app/ --ignore-missing-imports --exclude 'lab-4-4/'
+        mypy app/ --ignore-missing-imports --explicit-package-bases
 
     - name: Test with pytest
       run: |
